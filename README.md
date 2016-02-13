@@ -43,7 +43,7 @@ class CustomerService{
     val result = cpf.validate 
     result.isValid match {
       case true => {
-        repository.add(Customer(email, cpf))
+        repository.add(Customer(emailParam, cpf))
         Response.created()
       }
       case false => Response.badRequest("CPF inválido.")
