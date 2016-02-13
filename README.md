@@ -14,7 +14,7 @@ Fique a vontade para implementar novos tipos ou sugerir melhorias/correções vi
 
 ## Backlog
 
-* Integração Contínua
+* Integração Contínua - em andamento
 * Tipo e validador para CNPJ
 
 ## <a name="quick-start">Quick Start</a>
