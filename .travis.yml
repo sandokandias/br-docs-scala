@@ -6,11 +6,8 @@ scala:
 jdk:
   - oraclejdk8
 
-before_install:
-  - pip install --user codecov
-
 script:
-  - travis_retry sbt ++$TRAVIS_SCALA_VERSION clean coverage test
+  - sbt clean coverage coverageReport test
 
 after_success:
-  - codecov
+  - pip install --user codecov && codecov
