@@ -12,6 +12,11 @@ Fique a vontade para implementar novos tipos ou sugerir melhorias/correções vi
 * Tipo forte para **CPF**
 * Validador para **CPF** *(Companion Object)*
 
+## Backlog
+
+* Integração Contínua
+* Tipo e validador para CNPJ
+
 ## <a name="quick-start">Quick Start</a>
 
 Utilizar a API é muito simples, apenas instancie o documento desejado e invoque o método de validação.
