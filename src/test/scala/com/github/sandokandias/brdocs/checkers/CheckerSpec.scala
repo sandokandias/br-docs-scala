@@ -25,4 +25,15 @@ class CheckerSpec extends FlatSpec {
   it should "return nothing when value isn't empty Traversable" in {
     NonEmptyChecker.check(Traversable("41536843334"))
   }
+
+  it should "produce IllegalArgumentException when chars isn't numeric" in {
+    intercept[IllegalArgumentException] {
+      OnlyNumbersChecker.check("ONLY_NUMBERS_CHECKER")
+    }
+  }
+
+  it should "return nothing when chars is numeric" in {
+    OnlyNumbersChecker.check("41536843334")
+  }
+
 }
