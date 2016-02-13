@@ -7,7 +7,7 @@ trait Checker {
   protected val NON_EMPTY_MESSAGE = "Um valor deve ser informado."
   protected val ONLY_NUMBERS_MESSAGE = "Somente caracteres numéricos devem ser informados."
 
-  def check[A](value: A)
+  def check(value: String)
 
   protected def checkOrThrowError(condition: Boolean, message: String) = {
     if (!condition) throw new IllegalArgumentException(message)
@@ -16,7 +16,7 @@ trait Checker {
 
 object NonNullChecker extends Checker {
 
-  override def check[A](value: A) = {
+  override def check(value: String) = {
     checkOrThrowError(!Option(value).isEmpty, NON_EMPTY_MESSAGE)
   }
 
@@ -24,27 +24,19 @@ object NonNullChecker extends Checker {
 
 object NonEmptyChecker extends Checker {
 
-  override def check[A](value: A) = {
+  override def check(value: String) = {
 
     NonNullChecker.check(value)
-
-    value match {
-      case v: String           => checkOrThrowError(!v.isEmpty, NON_EMPTY_MESSAGE)
-      case c: Traversable[Any] => checkOrThrowError(!c.isEmpty, NON_EMPTY_MESSAGE)
-    }
+    checkOrThrowError(!value.isEmpty, NON_EMPTY_MESSAGE)
   }
 
 }
 
-object OnlyNumbersChecker extends Checker {
+object CPFPatternChecker extends Checker {
 
-  override def check[A](value: A) = {
-    try {
-      value.toString.toLong
-    } catch {
-      case ex: NumberFormatException =>
-        throw new IllegalArgumentException(ONLY_NUMBERS_MESSAGE)
-    }
+  private val REGEX = "(^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(^\\d{3}\\d{3}\\d{3}\\d{2})$".r
+
+  override def check(value: String) = {
+    checkOrThrowError(!REGEX.findFirstMatchIn(value).isEmpty, NON_EMPTY_MESSAGE)
   }
-
 }

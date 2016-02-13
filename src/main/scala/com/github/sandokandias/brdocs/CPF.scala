@@ -1,7 +1,7 @@
 package com.github.sandokandias.brdocs
 
 import com.github.sandokandias.brdocs.checkers.NonEmptyChecker
-import com.github.sandokandias.brdocs.checkers.OnlyNumbersChecker
+import com.github.sandokandias.brdocs.checkers.CPFPatternChecker
 
 case class CPF(val value: String) {
 
@@ -13,7 +13,7 @@ case class CPF(val value: String) {
 object CPF {
 
   private val FACTOR = Array(11, 10, 9, 8, 7, 6, 5, 4, 3, 2)
-  private val CHECKERS = Seq(NonEmptyChecker, OnlyNumbersChecker)
+  private val CHECKERS = Seq(NonEmptyChecker, CPFPatternChecker)
 
   def checkPattern(value: String) = {
     CHECKERS.foreach { c => c.check(value) }
@@ -23,7 +23,7 @@ object CPF {
     val digit1: Int = calcDigit(value.substring(0, 9));
     val digit2: Int = calcDigit(value.substring(0, 9) + digit1);
     val calculated = value.substring(0, 9) + digit1.toString + digit2.toString
-    
+
     ValidationResult(value.equals(calculated))
   }
 
