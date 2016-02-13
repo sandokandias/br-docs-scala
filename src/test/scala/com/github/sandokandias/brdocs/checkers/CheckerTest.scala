@@ -2,7 +2,7 @@ package com.github.sandokandias.brdocs.checkers
 
 import org.scalatest.FlatSpec
 
-class CheckerSpec extends FlatSpec {
+class CheckerTest extends FlatSpec {
 
   it should "produce IllegalArgumentException when value is empty String" in {
     intercept[IllegalArgumentException] {

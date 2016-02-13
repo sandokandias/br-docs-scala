@@ -12,6 +12,8 @@ libraryDependencies ++= Seq(
 )
 
 resolvers ++= Seq(
-  Resolver.mavenLocal
+  Resolver.mavenLocal,
+  "scoverage-bintray" at "https://dl.bintray.com/sksamuel/sbt-plugins/"
 )
 
+publishArtifact in Test := false

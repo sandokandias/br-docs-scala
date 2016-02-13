@@ -2,7 +2,7 @@ package com.github.sandokandias.brdocs
 
 import org.scalatest.FlatSpec
 
-class CPFSpec extends FlatSpec {
+class CPFTest extends FlatSpec {
 
   it should "produce IllegalArgumentException when value is empty on CPF instantiation" in {
     intercept[IllegalArgumentException] {
