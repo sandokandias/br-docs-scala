@@ -4,6 +4,8 @@ API Scala para manipulação de documentos brasileiros como CPF, CNPJ, entre out
 
 [![Build Status](https://secure.travis-ci.org/sandokandias/br-docs-scala.png?branch=master)](http://travis-ci.org/sandokandias/br-docs-scala?branch=master)
 [![Test Coverage](http://codecov.io/github/sandokandias/br-docs-scala/coverage.svg?branch=master)](http://codecov.io/github/sandokandias/br-docs-scala?branch=master)
+[![License](http://img.shields.io/badge/license-CC0%201.0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+
 
 ## Status
 
