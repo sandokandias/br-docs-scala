@@ -35,14 +35,17 @@ case class Customer(
 ```Scala
 class CustomerService{
 
-  def register(val request: Request) = {
+  def register(val request: Request): Response = {
     val cpfParam = request.param("cpf")
     val emailParam = request.param("email")
     
     val cpf = CPF(cpfParam)
     val result = cpf.validate 
     result.isValid match {
-      case true => repository.add(Customer(email, cpf))
+      case true => {
+        repository.add(Customer(email, cpf))
+        Response.created()
+      }
       case false => Response.badRequest("CPF inválido.")
     }
   }
