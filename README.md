@@ -2,6 +2,9 @@
 
 API Scala para manipulação de documentos brasileiros como CPF, CNPJ, entre outros.
 
+[![Build Status](https://secure.travis-ci.org/sandokandias/br-docs-scala.png?branch=master)](http://travis-ci.org/sandokandias/br-docs-scala?branch=master)
+[![Test Coverage](http://codecov.io/github/sandokandias/br-docs-scala/coverage.svg?branch=master)](http://codecov.io/github/sandokandias/br-docs-scala?branch=master)
+
 ## Status
 
 Este projeto encontra-se em fase de desenvolvimento. No momento apenas o tipo ***CPF*** e seu validador está implementado.
