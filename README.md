@@ -5,6 +5,7 @@ API Scala para manipulação de documentos brasileiros como CPF, CNPJ, entre out
 ## Status
 
 Este projeto encontra-se em fase de desenvolvimento. No momento apenas o tipo ***CPF*** e seu validador está implementado.
+Fique a vontade para implementar novos tipos ou sugerir melhorias/correções via pull request.
 
 ## Features até o momento
 
