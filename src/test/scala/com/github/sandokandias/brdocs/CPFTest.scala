@@ -17,10 +17,10 @@ class CPFTest extends FlatSpec {
   }
 
   "An invalid CPF [94677658705]" should "return invalid" in {
-    assert(CPF("94677658705").validate.isValid == false)
+    assert(!CPF("94677658705").validate.isValid)
   }
 
   "An valid CPF [94677658706]" should "return valid" in {
-    assert(CPF("94677658706").validate.isValid == true)
+    assert(CPF("94677658706").validate.isValid)
   }
 }
