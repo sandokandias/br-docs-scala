@@ -8,5 +8,9 @@ jdk:
 
 before_install:
   - pip install --user codecov
+
+script:
+  - travis_retry sbt ++$TRAVIS_SCALA_VERSION clean coverage test
+
 after_success:
   - codecov
