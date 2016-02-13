@@ -9,8 +9,8 @@ Fique a vontade para implementar novos tipos ou sugerir melhorias/correções vi
 
 ## Features até o momento
 
-* Tipo forte para CPF
-* Validador para CPF *(Companion Object)*
+* Tipo forte para **CPF**
+* Validador para **CPF** *(Companion Object)*
 
 ## <a name="quick-start">Quick Start</a>
 
@@ -43,3 +43,7 @@ class CustomerService{
   }
 }
 ```
+
+## License
+
+Creative commons Zero CC0 - https://creativecommons.org/publicdomain/zero/1.0
