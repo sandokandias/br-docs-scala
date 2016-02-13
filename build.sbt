@@ -12,7 +12,6 @@ libraryDependencies ++= Seq(
 )
 
 resolvers ++= Seq(
-  "Artima Maven Repository" at "http://repo.artima.com/releases",
   Resolver.mavenLocal
 )
 
