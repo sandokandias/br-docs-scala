@@ -14,45 +14,54 @@ Fique a vontade para implementar novos tipos ou sugerir melhorias/correções vi
 
 ## Features até o momento
 
-* Tipo forte para **CPF**
-* Validador para **CPF** *(Companion Object)*
+* Tipo forte para **CPF** e **CNPJ**
+* Validador para **CPF** e **CNPJ** *(Companion Object)*
 
 ## Backlog
 
-* Integração Contínua - em andamento
-* Tipo e validador para CNPJ
+* Integração codecov.io  - em andamento
+* Novos documentos
 
 ## <a name="quick-start">Quick Start</a>
 
 Utilizar a API é muito simples, apenas instancie o documento desejado e invoque o método de validação.
-Para demonstrar seu uso, focaremos na implementação de um caso de uso para cadastrar clientes.
 
-###Domain
+###CPF
 
 ```Scala
-case class Customer(
-  val email: String,
-  val cpf: CPF)
+"An valid unformatted CPF [94677658706] " should "return formatted when CPF.formatted is called" in {
+
+    val cpf = CPF("94677658706")
+
+    assert(cpf.validate.isValid)
+    assert(cpf.formatted == "946.776.587-06")
+}
+  
+"An valid formatted CPF [946.776.587-06] " should "return plain when CPF.plain is called" in {
+
+    val cpf = CPF("946.776.587-06")
+
+    assert(cpf.validate.isValid)
+    assert(cpf.plain == "94677658706")
+}
 ```
 
-###Use Case
+###CNPJ
 
 ```Scala
-class CustomerService{
+  "An valid unformatted CNPJ [56457412000100] " should "return formatted when CNPJ.formatted is called" in {
 
-  def register(val request: Request): Response = {
-    val cpfParam = request.param("cpf")
-    val emailParam = request.param("email")
-    
-    val cpf = CPF(cpfParam)
-    val result = cpf.validate 
-    result.isValid match {
-      case true => {
-        repository.add(Customer(emailParam, cpf))
-        Response.created()
-      }
-      case false => Response.badRequest("CPF inválido.")
-    }
+    val cnpj = CNPJ("56457412000100")
+
+    assert(cnpj.validate.isValid)
+    assert(cnpj.formatted == "56.457.412/0001-00")
   }
-}
+  
+  "An valid formatted CNPJ [56.457.412/0001-00] " should "return plain when CNPJ.plain is called" in {
+
+    val cnpj = CNPJ("56.457.412/0001-00")
+
+    assert(cnpj.validate.isValid)
+    assert(cnpj.plain == "56457412000100")
+  }
 ```
