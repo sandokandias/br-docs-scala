@@ -1,11 +1,8 @@
 package com.github.sandokandias.brdocs.checkers
 
-import scala.collection.Traversable
-
 trait Checker {
 
-  protected val NON_EMPTY_MESSAGE = "Um valor deve ser informado."
-  protected val ONLY_NUMBERS_MESSAGE = "Somente caracteres numéricos devem ser informados."
+  protected val INVALID_MESSAGE = s"Documento inválido."
 
   def check(value: String)
 
@@ -17,7 +14,7 @@ trait Checker {
 object NonNullChecker extends Checker {
 
   override def check(value: String) = {
-    checkOrThrowError(!Option(value).isEmpty, NON_EMPTY_MESSAGE)
+    checkOrThrowError(!Option(value).isEmpty, INVALID_MESSAGE)
   }
 
 }
@@ -27,16 +24,25 @@ object NonEmptyChecker extends Checker {
   override def check(value: String) = {
 
     NonNullChecker.check(value)
-    checkOrThrowError(!value.isEmpty, NON_EMPTY_MESSAGE)
+    checkOrThrowError(!value.isEmpty, INVALID_MESSAGE)
   }
 
 }
 
 object CPFPatternChecker extends Checker {
 
-  private val REGEX = "(^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(^\\d{3}\\d{3}\\d{3}\\d{2})$".r
+  private val REGEX = "^(\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2})$".r
 
   override def check(value: String) = {
-    checkOrThrowError(!REGEX.findFirstMatchIn(value).isEmpty, NON_EMPTY_MESSAGE)
+    checkOrThrowError(!REGEX.findFirstMatchIn(value).isEmpty, INVALID_MESSAGE)
+  }
+}
+
+object CNPJPatternChecker extends Checker {
+
+  private val REGEX = "^(\\d{2}\\.?\\d{3}\\.?\\d{3}\\/?\\d{4}-?\\d{2})$".r
+
+  override def check(value: String) = {
+    checkOrThrowError(!REGEX.findFirstMatchIn(value).isEmpty, INVALID_MESSAGE)
   }
 }
