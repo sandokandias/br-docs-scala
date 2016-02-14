@@ -19,7 +19,6 @@ Fique a vontade para implementar novos tipos ou sugerir melhorias/correções vi
 
 ## Backlog
 
-* Integração codecov.io  - em andamento
 * Novos documentos
 
 ## <a name="quick-start">Quick Start</a>
