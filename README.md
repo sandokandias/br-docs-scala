@@ -63,5 +63,5 @@ Utilizar a API é muito simples, apenas instancie o documento desejado e invoque
 
 ## Backlog
 
-* Publish artifact
+* Publicar artefato
 * Novos documentos
