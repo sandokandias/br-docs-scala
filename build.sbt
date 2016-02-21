@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "github.com.sandokandias",
+    organization := "com.github.sandokandias",
     name := "br-docs-scala",
     version := "1.0-SNAPSHOT",
     scalaVersion := "2.11.7"
